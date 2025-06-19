@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio de Evaluación RED</title>
 
   <!-- Fuentes -->
@@ -28,7 +28,6 @@
       animation: slideInLeft 0.8s ease-out both;
     }
 
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -40,10 +39,9 @@
       margin: 0;
       background: linear-gradient(to right, #fce4ec, #f8bbd0); 
       color: #333;
-      padding-top: 80px;
+      padding-top: 70px;
     }
 
-    /* Menú de navegación */
     nav {
       position: fixed;
       top: 0;
@@ -58,25 +56,25 @@
       backdrop-filter: blur(6px);
     }
 
-    nav .logo {
+    nav img.logo {
       height: 30px;
       transition: transform 0.3s ease;
     }
 
-    nav .logo:hover {
+    nav img.logo:hover {
       transform: rotate(5deg);
     }
 
     nav .nav-links {
       display: flex;
-      gap: 12px;
+      gap: 18px;
     }
 
     nav .nav-links a {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 0.9em;
+      font-size: 0.95em;
       padding: 8px 12px;
       background: #f8bbd0;
       border-radius: 8px;
@@ -88,44 +86,54 @@
       background: #f48fb1;
     }
 
-    /* Responsive para móviles */
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      nav .nav-links.desktop-menu {
+        display: none !important;
       }
 
-      nav .nav-links {
-        flex-wrap: wrap;
+      .menu-toggle {
+        display: block;
+      }
+
+      nav .nav-links.mobile-menu {
+        display: none;
+        flex-direction: column;
         width: 100%;
-        justify-content: center;
         margin-top: 10px;
       }
 
-      nav .nav-links a {
-        font-size: 0.85em;
-        padding: 6px 10px;
-        width: 100%;
+      nav .nav-links.mobile-menu.active {
+        display: flex;
+      }
+
+      nav .nav-links.mobile-menu a {
         text-align: center;
+        padding: 10px;
+        width: 100%;
+        font-size: 1em;
       }
     }
 
-    /* Contenedor principal */
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 40px 20px;
     }
 
-    /* Tarjetas estilizadas */
     .card {
       background-color: #ffffff;
       border: 2px solid #f48fb1;
-      padding: 25px;
+      padding: 30px;
       border-radius: 12px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       transition: transform 0.3s ease-in-out;
     }
 
@@ -154,15 +162,6 @@
       margin-bottom: 15px;
     }
 
-    ul, ol {
-      padding-left: 20px;
-      margin-bottom: 15px;
-    }
-
-    li::before {
-      color: #ec407a;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -179,7 +178,25 @@
       color: #880e4f;
     }
 
-    /* Fotos de integrantes */
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    li::before {
+      color: #ec407a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f8bbd0;
+      color: #880e4f;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* Integrantes */
     .integrantes-container {
       display: flex;
       flex-wrap: wrap;
@@ -223,24 +240,38 @@
       font-size: 1.1em;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #f8bbd0;
-      color: #880e4f;
-      font-weight: bold;
-      margin-top: 40px;
+    /* Flipbook */
+    .flipbook-container {
+      width: 100%;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .fp-iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Menú de navegación -->
-  <nav>
+  <!-- Barra de navegación -->
+  <nav id="navbar">
     <div>
       <img src="https://udes.edu.co/images/logo/udes-original.svg"  alt="Logo UDES" class="logo" style="height: 35px;">
     </div>
-    <div class="nav-links">
+    <div class="nav-links desktop-menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#modelos">Modelos y RED</a>
+      <a href="#aplicacion">Aplicación</a>
+      <a href="#propuesta">Rediseño</a>
+      <a href="#referencias">Referencias</a>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-links mobile-menu" id="mobileMenu">
       <a href="#inicio">Inicio</a>
       <a href="#modelos">Modelos y RED</a>
       <a href="#aplicacion">Aplicación</a>
@@ -249,7 +280,7 @@
     </div>
   </nav>
 
-  <!-- Contenido Principal -->
+  <!-- Contenido principal -->
   <div class="container fade-in">
 
     <!-- Inicio -->
@@ -278,10 +309,20 @@
       <!-- Información del portafolio -->
       <p><strong>PROFESOR:</strong> NÉSTOR ANAYA</p>
       <p><strong>UNIVERSIDAD:</strong> UNIVERSIDAD DE SANTANDER – UDES</p>
-      <p><strong>FECHA:</strong> ABRIL DE 2025</p>
+      <p><strong>FECHA:</strong> JUNIO DE 2025</p>
       <h3>📘 INTRODUCCIÓN</h3>
       <p>Como profesoras de educación básica primaria con trayectoria en diferentes regiones del país —desde contextos urbanos hasta zonas rurales—, hemos observado cómo los Recursos Educativos Digitales (RED) están transformando la práctica pedagógica. En este sentido, consideramos fundamental no solo incorporar estas herramientas en nuestras aulas, sino también evaluar su calidad, accesibilidad y pertinencia curricular antes de su uso.</p>
       <p>Este portafolio digital es el resultado del trabajo colaborativo desarrollado durante el curso "Modelos de Evaluación de Recursos Educativos Digitales", ofrecido por la Universidad de Santander (UDES). A través de esta producción académica, presentamos una reflexión crítica sobre tres modelos internacionales y nacionales de evaluación de RED —LORI, CODA y ECOBA— y aplicamos dichos instrumentos a dos recursos educativos digitales ampliamente utilizados: PhET Interactive Simulations y Khan Academy.</p>
+
+      <!-- Flipbook - La Gotita Viajera -->
+      <h3 style="margin-top: 30px;">📚 La Gotita Viajera de Agua</h3>
+      <div class="flipbook-container">
+        <iframe allowfullscreen="allowfullscreen"
+                scrolling="no"
+                class="fp-iframe"
+                src="https://heyzine.com/flip-book/9c6a69b925.html"> 
+        </iframe>
+      </div>
     </div>
 
     <!-- Modelos -->
@@ -339,5 +380,29 @@
     <p>&copy; 2025 Portafolio RED | Universidad de Santander</p>
   </footer>
 
+  <!-- Script para menú desplegable -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+
+    // Scroll suave a secciones
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
+
