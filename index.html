@@ -170,14 +170,28 @@
       margin: 20px 0;
     }
 
-    /* Video */
+    /* Video Canva */
     .video-frame {
+      position: relative;
       width: 100%;
-      height: 400px;
+      height: 0;
+      padding-top: 56.25%; /* Aspecto 16:9 */
+      box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+      margin: 1.6em 0;
+      overflow: hidden;
+      border-radius: 8px;
+      will-change: transform;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
       border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      margin: 20px 0;
+      padding: 0;
+      margin: 0;
     }
 
     .centered {
@@ -279,7 +293,6 @@
     <div class="card fade-in" id="aplicacion">
       <h2><span class="section-icon">🌸</span> 3. Aplicación de Modelo de Evaluación</h2>
       <p>Para aplicar los modelos seleccionados, se eligieron dos recursos digitales educativos ampliamente utilizados en entornos escolares: el simulador <strong>PhET Interactive Simulations</strong> y la plataforma <strong>Khan Academy</strong>.</p>
-
       <h3>3.2 Recursos Educativos Digitales</h3>
       <h3>Recurso 1: “Gotas de lluvia viajeras” (Canva)</h3>
       <ul>
@@ -318,18 +331,22 @@
       <p>En nuestras aulas de 1°, 3° y 4° grado, observamos que los estudiantes requieren recursos que combinen accesibilidad, interactividad y alineación curricular. Por eso, rediseñamos el recurso del BNOA en Canva, integrando narrativas interactivas y actividades diferenciadas por nivel.</p>
 
       <h3 class="section-subtitle">📌 Video Explicativo del Proceso</h3>
-      <div class="centered">
-        <iframe 
-          width="560" 
-          height="315" 
-          src="https://www.youtube.com/embed/oc5WKlWkV2o?si=0sjzpTb1BGPswpbP" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          allowfullscreen
-          class="video-frame">
+      <!-- Video incrustado de Canva -->
+      <div class="video-frame centered">
+        <iframe loading="lazy"
+                src="https://www.canva.com/design/DAGq7QOwODs/-vj5PnPNh3BhakQMPXzcEg/watch?embed"
+                allowfullscreen="allowfullscreen"
+                allow="fullscreen"
+                style="border: none; padding: 0; margin: 0;">
         </iframe>
+      </div>
+      <div class="centered" style="margin: 10px 0;">
+        <a href="https://www.canva.com/design/DAGq7QOwODs/-vj5PnPNh3BhakQMPXzcEg/watch?utm_content=DAGq7QOwODs&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color:#880e4f; text-decoration: underline; font-weight:bold;"> 
+          Ver Diseño de Jairo Mezsil en Canva
+        </a>
       </div>
     </div>
 
@@ -337,11 +354,11 @@
     <div class="card" id="referencias">
       <h2><span class="section-icon">🌸</span> 5. Referencias Bibliográficas (APA 7ª edición)</h2>
       <ul>
-        <li>Ministerio de Educación Nacional [MEN]. (2024). Colombia Aprende. https://www.colombiaaprende.edu.co</li>
-        <li>UNESCO. (2023). Directrices sobre los Recursos Educativos Abiertos (REA). https://unesdoc.unesco.org</li>
-        <li>Ramírez, D., & Salazar, A. (2020). ECOBA: Evaluación de Contenidos Digitales para el Aula. Revista Iberoamericana de Educación, 83(1), 45–63. https://doi.org/10.35362/rie8311234</li>
-        <li>Molano Puentes, F. U., Alarcón-Aldana, A. C., & Callejas-Cuervo, M. (2018). Guía para el análisis de calidad de objetos virtuales de aprendizaje para educación básica y media en Colombia. Praxis & Saber, 9(21), 47–73. https://doi.org/10.19053/22160159.v9.n21.2018.7474</li>
-        <li>Canva (2024). Herramienta de creación de contenidos interactivos. https://www.canva.com</li>
+        <li>Ministerio de Educación Nacional [MEN]. (2024). Colombia Aprende. https://www.colombiaaprende.edu.co</li> 
+        <li>UNESCO. (2023). Directrices sobre los Recursos Educativos Abiertos (REA). https://unesdoc.unesco.org</li> 
+        <li>Ramírez, D., & Salazar, A. (2020). ECOBA: Evaluación de Contenidos Digitales para el Aula. Revista Iberoamericana de Educación, 83(1), 45–63. https://doi.org/10.35362/rie8311234</li> 
+        <li>Molano Puentes, F. U., Alarcón-Aldana, A. C., & Callejas-Cuervo, M. (2018). Guía para el análisis de calidad de objetos virtuales de aprendizaje para educación básica y media en Colombia. Praxis & Saber, 9(21), 47–73. https://doi.org/10.19053/22160159.v9.n21.2018.7474</li> 
+        <li>Canva (2024). Herramienta de creación de contenidos interactivos. https://www.canva.com</li> 
         <li>Ruiz, C., Muñoz, M., & Álvarez, G. (2019). ECOBA: Evaluación de Calidad de Objetos de Aprendizaje basada en competencias. Revista Colombiana de Tecnología en Educación y Sociedad, 2(1), 44–55.</li>
       </ul>
     </div>
@@ -355,7 +372,7 @@
 
   <!-- Scroll suave a anclas -->
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => { 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
         const targetId = this.getAttribute("href");
