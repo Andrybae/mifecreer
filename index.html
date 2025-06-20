@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portafolio de Evaluación RED</title>
 
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <!-- Estilos -->
   <style>
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
@@ -86,38 +85,30 @@
       background: #f48fb1;
     }
 
-    .menu-toggle {
-      display: none;
-      font-size: 1.5em;
-      cursor: pointer;
-      color: white;
-    }
-
+    /* Botón pequeño en móviles */
     @media (max-width: 768px) {
-      nav .nav-links.desktop-menu {
-        display: none !important;
+      nav .nav-links a {
+        font-size: 0.8em;
+        padding: 6px 10px;
+        border-radius: 6px;
       }
 
-      .menu-toggle {
+      .desktop-title {
+        display: none;
+      }
+
+      .mobile-title {
         display: block;
       }
+    }
 
-      nav .nav-links.mobile-menu {
+    @media (min-width: 769px) {
+      .mobile-title {
         display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
       }
 
-      nav .nav-links.mobile-menu.active {
-        display: flex;
-      }
-
-      nav .nav-links.mobile-menu a {
-        text-align: center;
-        padding: 10px;
-        width: 100%;
-        font-size: 1em;
+      .desktop-title {
+        display: block;
       }
     }
 
@@ -127,29 +118,10 @@
       padding: 40px 20px;
     }
 
-    .card {
-      background-color: #ffffff;
-      border: 2px solid #f48fb1;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      margin-bottom: 40px;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
     h2, h3 {
       color: #880e4f;
       margin-top: 0;
       margin-bottom: 15px;
-    }
-
-    h2::before {
-      content: "🌸 ";
-      color: #880e4f;
     }
 
     h3::before {
@@ -157,9 +129,12 @@
       color: #880e4f;
     }
 
-    p {
-      line-height: 1.6;
-      margin-bottom: 15px;
+    ul li::before {
+      content: "💡 ";
+    }
+
+    ol li::before {
+      content: "🎯 ";
     }
 
     table {
@@ -178,13 +153,18 @@
       color: #880e4f;
     }
 
-    ul, ol {
-      padding-left: 20px;
-      margin-bottom: 15px;
+    .card {
+      border: 2px solid #f48fb1;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+      transition: transform 0.3s ease-in-out;
     }
 
-    li::before {
-      color: #ec407a;
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     footer {
@@ -196,69 +176,54 @@
       margin-top: 40px;
     }
 
-    /* Integrantes */
-    .integrantes-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin: 30px 0;
-    }
-
-    .integrante-card {
-      text-align: center;
-      flex: 1 1 250px;
-      max-width: 300px;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .integrante-card:hover {
-      transform: scale(1.05);
-    }
-
-    .integrante-img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .integrante-card:hover .integrante-img {
-      transform: scale(1.1);
-    }
-
-    .integrante-nombre {
-      font-weight: bold;
+    .section-subtitle {
+      font-size: 1.3em;
       color: #ad1457;
-      font-size: 1.1em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-style: italic;
     }
 
-    /* Flipbook */
-    .flipbook-container {
+    .video-container {
       width: 100%;
-      overflow: hidden;
-      margin: 20px 0;
+      max-width: 560px;
+      margin: 20px auto;
+      text-align: center;
     }
 
-    .fp-iframe {
+    .video-frame {
       width: 100%;
-      height: 400px;
+      height: 315px;
       border: none;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       border-radius: 10px;
+    }
+
+    .iframe-link {
+      display: block;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .iframe-link a {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #f48fb1;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .iframe-link a:hover {
+      background-color: #ec407a;
     }
   </style>
 </head>
 <body>
 
-  <!-- Barra de navegación -->
+  <!-- Menú de navegación -->
   <nav id="navbar">
     <div>
       <img src="https://udes.edu.co/images/logo/udes-original.svg"  alt="Logo UDES" class="logo" style="height: 35px;">
@@ -280,42 +245,26 @@
     </div>
   </nav>
 
-  <!-- Contenido principal -->
+  <!-- Contenido Principal -->
   <div class="container fade-in">
 
     <!-- Inicio -->
     <div class="card slide-in" id="inicio">
-      <h2 style="text-align:center;">PORTAFOLIO DIGITAL: MODELOS DE EVALUACIÓN DE RECURSOS EDUCATIVOS DIGITALES</h2>
+      <h2 class="desktop-title section-title" style="text-align:center;">PORTAFOLIO DIGITAL: MODELOS DE EVALUACIÓN DE RECURSOS EDUCATIVOS DIGITALES APLICADOS A LA LECTOESCRITURA</h2>
+      <h2 class="mobile-title section-title" style="text-align:center;">Portafolio RED - UDES 2025</h2>
 
-      <!-- Fotos de integrantes -->
-      <section id="integrantes">
-        <h3 style="text-align:center;">👩‍🏫 Integrantes</h3>
-        <div class="integrantes-container">
-          <div class="integrante-card">
-            <img src="https://i.ibb.co/2776jcqj/gregoria.jpg"  alt="Gregoria Del Rosario Bolaño Miranda" class="integrante-img">
-            <p class="integrante-nombre">Gregoria Del Rosario Bolaño Miranda</p>
-          </div>
-          <div class="integrante-card">
-            <img src="https://i.ibb.co/S4VtZc21/bertilda.jpg"  alt="Berthilda Isabel Rodríguez Ibarra" class="integrante-img">
-            <p class="integrante-nombre">Berthilda Isabel Rodríguez Ibarra</p>
-          </div>
-          <div class="integrante-card">
-            <img src="https://i.ibb.co/9Psp9Gv/onilda.jpg"  alt="Onilda Esther Reyes Orozco" class="integrante-img">
-            <p class="integrante-nombre">Onilda Esther Reyes Orozco</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Información del portafolio -->
+      <p><strong>INTEGRANTES:</strong><br>GREGORIA DEL ROSARIO BOLAÑO MIRANDA<br>ONILDA ESTHER REYES OROZCO<br>BERTILDA ISABEL RODRÍGUEZ IBARRA</p>
       <p><strong>PROFESOR:</strong> NÉSTOR ANAYA</p>
       <p><strong>UNIVERSIDAD:</strong> UNIVERSIDAD DE SANTANDER – UDES</p>
       <p><strong>FECHA:</strong> JUNIO DE 2025</p>
+
       <h3>📘 INTRODUCCIÓN</h3>
-      <p>Como profesoras de educación básica primaria con trayectoria en diferentes regiones del país —desde contextos urbanos hasta zonas rurales—, hemos observado cómo los Recursos Educativos Digitales (RED) están transformando la práctica pedagógica. En este sentido, consideramos fundamental no solo incorporar estas herramientas en nuestras aulas, sino también evaluar su calidad, accesibilidad y pertinencia curricular antes de su uso.</p>
-      <p>Este portafolio digital es el resultado del trabajo colaborativo desarrollado durante el curso "Modelos de Evaluación de Recursos Educativos Digitales", ofrecido por la Universidad de Santander (UDES). A través de esta producción académica, presentamos una reflexión crítica sobre tres modelos internacionales y nacionales de evaluación de RED —LORI, CODA y ECOBA— y aplicamos dichos instrumentos a dos recursos educativos digitales ampliamente utilizados: PhET Interactive Simulations y Khan Academy.</p>
+      <p>Como docentes costeñas de Santa Bárbara de Pinto, Magdalena, con décadas de experiencia en educación primaria, enfrentamos diariamente el reto de integrar herramientas digitales que no solo sean técnicamente sólidas, sino también alineadas a los estándares del MEN y contextualizadas a nuestra realidad educativa.</p>
+      <p>Este portafolio digital surge como parte de nuestro compromiso con la mejora pedagógica, aplicando modelos reconocidos de evaluación de Recursos Educativos Digitales (RED): LORI, CODA y ECOBA. Hemos seleccionado como recurso principal el Banco Nacional de Objetos de Aprendizaje (BNOA), del portal Colombia Aprende, por su alineación curricular, accesibilidad y pertenencia al sistema educativo nacional.</p>
+      <p>Además, presentamos una historieta interactiva en Canva ("Gotas de lluvia viajeras") y una propuesta didáctica diferenciada por grados (1°, 3° y 4°), con actividades de iniciación a la lectura, comprensión crítica y producción textual.</p>
 
       <!-- Flipbook - La Gotita Viajera -->
-      <h3 style="margin-top: 30px;">📚 La Gotita Viajera de Agua</h3>
+      <h3 class="section-subtitle">📚 Historieta Interactiva: "Gotas de lluvia viajeras"</h3>
       <div class="flipbook-container">
         <iframe allowfullscreen="allowfullscreen"
                 scrolling="no"
@@ -327,49 +276,136 @@
 
     <!-- Modelos -->
     <div class="card slide-in" id="modelos">
-      <h2>🌸 2. Modelos de Evaluación y RED</h2>
-      <h3>📘 Marco Teórico</h3>
-      <p><strong>¿Qué son los Recursos Educativos Digitales (RED)?</strong></p>
-      <p>Los Recursos Educativos Digitales (RED) son materiales educativos disponibles en formatos digitales, diseñados para apoyar procesos de enseñanza-aprendizaje. Estos pueden incluir simulaciones, videos interactivos, libros electrónicos, objetos de aprendizaje, entre otros (UNESCO, 2023).</p>
-      <p>Según el Ministerio de Educación Nacional de Colombia (MEN, 2024), los RED deben cumplir criterios de calidad, accesibilidad, reutilización y relevancia pedagógica. Para ello, existen modelos de evaluación estandarizados que permiten valorar estos aspectos antes de su implementación en el aula.</p>
+      <h2>🌸 MARCO TEÓRICO</h2>
+      <h3>📘 ¿Qué son los Recursos Educativos Digitales (RED)?</h3>
+      <p>Los Recursos Educativos Digitales (RED) son materiales educativos en formato digital que apoyan procesos de enseñanza-aprendizaje. Estos incluyen simulaciones, libros interactivos, videos y objetos de aprendizaje, y deben cumplir criterios de calidad, accesibilidad y alineación curricular (UNESCO, 2023; MEN, 2024).</p>
+      <p>Según el MEN (2024), los RED deben ser evaluados antes de su implementación en el aula, utilizando modelos como LORI, CODA y ECOBA, que permiten medir aspectos técnicos, pedagógicos y contextuales.</p>
+
+      <h3 class="section-subtitle">3.1 Seleccionando Modelos</h3>
+      <p>Los modelos LORI, CODA y ECOBA fueron seleccionados por su capacidad para medir aspectos complementarios de los RED.</p>
+
       <table>
-        <tr><th>Modelo</th><th>Descripción</th></tr>
-        <tr><td>LORI</td><td>Evalúa los objetos digitales en diez dimensiones: usabilidad, accesibilidad, claridad, motivación, entre otros. Fue diseñado por Nesbit et al. (2002) y es ampliamente reconocido a nivel internacional.</td></tr>
-        <tr><td>CODA</td><td>Modelo nacional enfocado en la estructura pedagógica y técnica, promovido por el Ministerio de Educación de Colombia.</td></tr>
-        <tr><td>ECOBA</td><td>Herramienta desarrollada en México orientada a validar el impacto curricular y la interactividad de los recursos educativos digitales.</td></tr>
+        <tr><th>Modelo</th><th>Criterios</th><th>Clave</th><th>Método</th></tr>
+        <tr><td>LORI</td><td>Claridad, usabilidad, motivación</td><td>1–5</td><td>Autoevaluación guiada</td></tr>
+        <tr><td>CODA</td><td>Diseño pedagógico, metadatos, accesibilidad</td><td>Sí / No / Parcial</td><td>Revisión técnica y pedagógica</td></tr>
+        <tr><td>ECOBA</td><td>Pertinencia curricular, interactividad</td><td>Alto / Medio / Bajo</td><td>Evaluación contextual</td></tr>
       </table>
     </div>
 
     <!-- Aplicación -->
     <div class="card slide-in" id="aplicacion">
       <h2>🌸 3. Aplicación de Modelo de Evaluación</h2>
-      <p>Para aplicar los modelos seleccionados, se eligieron dos recursos digitales educativos ampliamente utilizados en entornos escolares: el simulador <strong>PhET Interactive Simulations</strong> y la plataforma <strong>Khan Academy</strong>.</p>
-      <h3>3.1 Evaluación con modelo LORI</h3>
+
+      <h3 class="section-subtitle">Recurso 1: “Gotas de lluvia viajeras” (Canva)</h3>
+      <ul>
+        <li><strong>Autor:</strong> Adaptación realizada por las docentes</li>
+        <li><strong>Repositorio:</strong> <a href="https://www.canva.com"  target="_blank" style="color:#880e4f; text-decoration: underline;">https://www.canva.com</a></li> 
+        <li><strong>Descripción:</strong> Historieta interactiva sobre el ciclo del agua, diseñada para fomentar el reconocimiento de letras, sílabas y comprensión lectora inicial.</li>
+        <li><strong>Características:</strong>
+          <ul>
+            <li>Narrativa visual con personajes locales</li>
+            <li>Preguntas orales y actividades de asociación de palabras</li>
+            <li>Compatible con dispositivos móviles y uso sin conexión</li>
+          </ul>
+        </li>
+        <li><strong>Limitaciones:</strong>
+          <ul>
+            <li>Requiere rediseño técnico para interactividad completa</li>
+            <li>No hay versión descargable sin internet (solo PDF)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="section-subtitle">Recurso 2: Banco Nacional de Objetos de Aprendizaje (BNOA)</h3>
+      <ul>
+        <li><strong>Autor:</strong> Ministerio de Educación Nacional de Colombia</li>
+        <li><strong>Repositorio:</strong> <a href="https://www.colombiaaprende.edu.co"  target="_blank" style="color:#880e4f; text-decoration: underline;">https://www.colombiaaprende.edu.co</a></li> 
+        <li><strong>Descripción:</strong> Colección de recursos educativos alineados a los estándares del MEN, con actividades de fonética, comprensión lectora y producción textual.</li>
+        <li><strong>Características:</strong>
+          <ul>
+            <li>Acceso libre y gratuito</li>
+            <li>Compatible con trabajo presencial y virtual</li>
+            <li>Cumple normativas de privacidad y derechos de autor</li>
+          </ul>
+        </li>
+        <li><strong>Limitaciones:</strong>
+          <ul>
+            <li>Formato PDF no interactivo</li>
+            <li>Algunas actividades requieren internet</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="section-subtitle">Evaluación con modelo LORI – “Gotas de lluvia viajeras”</h3>
       <table>
-        <tr><th>Criterio</th><th>Puntaje (1 a 5)</th><th>Observación</th></tr>
-        <tr><td>Claridad</td><td>5</td><td>Interfaz clara y orientada al estudiante</td></tr>
-        <tr><td>Interactividad</td><td>4</td><td>Experiencia experimental directa</td></tr>
-        <tr><td>Accesibilidad</td><td>3</td><td>Requiere conexión estable</td></tr>
-        <tr><td>Adaptabilidad</td><td>4</td><td>Aplicable a diferentes niveles</td></tr>
+        <tr><th>Criterio</th><th>Puntaje (1-5)</th><th>Observaciones</th></tr>
+        <tr><td>Claridad</td><td>5</td><td>Interfaz intuitiva, ideal para niños pequeños.</td></tr>
+        <tr><td>Usabilidad</td><td>5</td><td>Fácil navegación, sin habilidades técnicas avanzadas.</td></tr>
+        <tr><td>Accesibilidad</td><td>4</td><td>Disponible en español y compatible con lectores de pantalla.</td></tr>
+        <tr><td>Motivación</td><td>5</td><td>Elementos visuales y narrativa atractiva.</td></tr>
+        <tr><td>Adaptabilidad</td><td>4</td><td>Adaptable a diferentes sesiones y niveles.</td></tr>
       </table>
+      <p><em>Reflexión:</em> Este modelo es útil para medir aspectos técnicos y de diseño, aunque carece de criterios curriculares específicos del MEN.</p>
+
+      <h3 class="section-subtitle">Evaluación con modelo CODA – BNOA</h3>
+      <table>
+        <tr><th>Criterio</th><th>Valoración</th><th>Observación</th></tr>
+        <tr><td>Diseño pedagógico</td><td>Sí</td><td>Secuencia lógica y progresiva.</td></tr>
+        <tr><td>Estructura técnica</td><td>Sí</td><td>Buen formato PDF y navegación clara.</td></tr>
+        <tr><td>Metadatos</td><td>Sí</td><td>Información detallada y alineada al currículo nacional.</td></tr>
+        <tr><td>Accesibilidad</td><td>Sí</td><td>Disponible en español y sin costo.</td></tr>
+        <tr><td>Reutilización</td><td>Sí</td><td>Adaptable a múltiples planes de clase.</td></tr>
+      </table>
+      <p><em>Reflexión:</em> CODA validó que el BNOA cumple con los estándares técnicos y pedagógicos del MEN, ideal para grados 3° y 4°.</p>
+
+      <h3 class="section-subtitle">Evaluación con modelo ECOBA – “Gotas de lluvia viajeras”</h3>
+      <table>
+        <tr><th>Criterio</th><th>Valoración</th><th>Observación</th></tr>
+        <tr><td>Pertinencia curricular</td><td>Alto</td><td>Alineado con estándares de lenguaje para primer grado.</td></tr>
+        <tr><td>Interactividad</td><td>Alto</td><td>Permite participación activa del estudiante.</td></tr>
+        <tr><td>Reutilización</td><td>Alto</td><td>Adaptable a sesiones presenciales, virtuales y mixtas.</td></tr>
+      </table>
+      <p><em>Reflexión:</em> ECOBA confirmó que este recurso puede integrarse fácilmente a secuencias didácticas reales, aunque necesita rediseño técnico para aumentar su interactividad.</p>
+
+      <!-- Solo enlace al BNOA -->
+      <div class="iframe-link">
+        <a href="https://www.colombiaaprende.edu.co/sites/default/files/files_public/contenidosaprender/index.html"  target="_blank">
+          Ir al Banco Nacional de Objetos de Aprendizaje (BNOA)
+        </a>
+      </div>
     </div>
 
     <!-- Rediseño -->
     <div class="card" id="propuesta">
-      <h2>🌸 4. Rediseño – Propuesta Didáctica</h2>
-      <p>La propuesta de rediseño parte de la aplicación práctica de los modelos evaluados sobre el recurso digital seleccionado. A partir de los resultados obtenidos, se plantea una secuencia didáctica centrada en el fortalecimiento de habilidades básicas de lectoescritura y pensamiento lógico-matemático.</p>
+      <h2>🌸 4. Rediseño – Propuesta Didáctica Diferenciada</h2>
+      <h3 class="section-subtitle">Contextualización Pedagógica</h3>
+      <p>En nuestras aulas de 1°, 3° y 4° grado, observamos que los estudiantes requieren recursos que combinen accesibilidad, interactividad y alineación curricular. Por eso, rediseñamos el recurso del BNOA en Canva, integrando narrativas interactivas y actividades diferenciadas por nivel.</p>
+
+      <h3 class="section-subtitle">Estrategia de Intervención Didáctica</h3>
+      <p><strong>Fase 1: Inicio – Activación de Conocimientos Previos</strong></p>
+      <ul>
+        <li><strong>Grado 1°:</strong> Presentación de la historieta "Gotas de lluvia viajeras" en Canva. Preguntas orales: ¿De dónde viene el agua? ¿Cómo se llaman estas palabras?</li>
+        <li><strong>Grado 3°:</strong> Presentación del PDF "Caminos de lectura y escritura – Grados 2° y 3°" del MEN. Preguntas inferenciales: ¿Por qué el agua es importante para los árboles?</li>
+        <li><strong>Grado 4°:</strong> Presentación del PDF "Caminos de lectura y escritura – Grados 4° y 5°" del MEN. Reflexión crítica: ¿Cómo afecta la contaminación al ciclo del agua?</li>
+      </ul>
+
+      <h3 class="section-subtitle">Video Explicativo del Proceso</h3>
+      <div class="video-container">
+        <iframe class="video-frame" src="https://www.youtube.com/embed/iG7AEkFyfdc"  allowfullscreen></iframe>
+      </div>
     </div>
 
     <!-- Referencias -->
     <div class="card" id="referencias">
-      <h2>🌸 5. Referencias</h2>
+      <h2>🌸 5. Referencias Bibliográficas (APA 7ª edición)</h2>
       <ul>
-        <li>Adame Rodríguez, S. I. (2022). Instrumento para evaluar Recursos Educativos Digitales, LORI. Universidad Abierta de México.</li>
-        <li>Nesbit, J., Belfer, K., & Archambault, A. (2002). LORI: Learning Object Review Instrument. Simon Fraser University.</li>
-        <li>MEN - Ministerio de Educación Nacional. (2024). Colombia Aprende.</li>
-        <li>UNESCO. (2023). Directrices sobre los Recursos Educativos Abiertos (REA).</li>
-        <li>Khan Academy. (2024). Plataforma de aprendizaje gratuito.</li>
-        <li>Ramírez, D. & Salazar, A. (2020). ECOBA: Evaluación de Contenidos Digitales para el Aula. Revista Iberoamericana de Educación.</li>
+        <li>Ministerio de Educación Nacional [MEN]. (2024). Colombia Aprende. https://www.colombiaaprende.edu.co</li> 
+        <li>UNESCO. (2023). Directrices sobre los Recursos Educativos Abiertos (REA). https://unesdoc.unesco.org</li> 
+        <li>Ramírez, D., & Salazar, A. (2020). ECOBA: Evaluación de Contenidos Digitales para el Aula. Revista Iberoamericana de Educación, 83(1), 45–63. https://doi.org/10.35362/rie8311234</li> 
+        <li>Molano Puentes, F. U., Alarcón-Aldana, A. C., & Callejas-Cuervo, M. (2018). Guía para el análisis de calidad de objetos virtuales de aprendizaje para educación básica y media en Colombia. Praxis & Saber, 9(21), 47–73. https://doi.org/10.19053/22160159.v9.n21.2018.7474</li> 
+        <li>Canva (2024). Herramienta de creación de contenidos interactivos. https://www.canva.com</li> 
+        <li>Canva (2024). Herramienta de diseño gráfico colaborativo. https://www.canva.com</li> 
+        <li>Ruiz, C., Muñoz, M., & Álvarez, G. (2019). ECOBA: Evaluación de Calidad de Objetos de Aprendizaje basada en competencias. Revista Colombiana de Tecnología en Educación y Sociedad, 2(1), 44–55.</li>
       </ul>
     </div>
 
@@ -405,4 +441,3 @@
 
 </body>
 </html>
-
